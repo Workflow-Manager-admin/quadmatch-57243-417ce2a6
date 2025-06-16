@@ -1,0 +1,171 @@
+.qm-root {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  background: #f8fafb;
+}
+
+.qm-container {
+  margin: 32px auto;
+  padding: 24px 24px 36px 24px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(45,49,97,0.07), 0 1.5px 6px rgba(68,125,252,0.05);
+  max-width: 420px;
+  min-width: 300px;
+}
+
+.qm-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 22px;
+  gap: 7px;
+}
+.qm-header-details {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  margin-top: 2px;
+  margin-bottom: 5px;
+}
+
+.qm-btn {
+  border: none;
+  border-radius: 5px;
+  padding: 8px 18px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 520;
+  transition: background .17s;
+  background: #f6f6f6;
+  color: #333;
+  outline: none;
+}
+.qm-btn-primary {
+  background: #4caf50;
+  color: #fff;
+}
+.qm-btn-primary:hover { background: #389536; }
+.qm-btn-accent {
+  background: #2196f3;
+  color: #fff;
+}
+.qm-btn-accent:hover { background: #1769aa; }
+
+.qm-score-label { font-weight: 500; }
+.qm-timer-label { font-weight: 500; }
+
+.qm-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 60px);
+  grid-template-rows: repeat(4, 80px);
+  gap: 14px;
+  justify-content: center;
+  margin-bottom: 18px;
+  margin-top: 12px;
+}
+
+@media (max-width: 420px) {
+  .qm-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 18vw);
+    gap: 9px;
+  }
+  .qm-container { padding: 10px 2vw 28px 2vw; }
+}
+
+.qm-card {
+  width: 60px;
+  height: 80px;
+  perspective: 600px;
+  background: none;
+  border: none;
+  padding: 0;
+  outline: none;
+}
+.qm-card.flipped .qm-card-inner,
+.qm-card.matched .qm-card-inner {
+  transform: rotateY(180deg);
+}
+.qm-card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.45s cubic-bezier(.78,.09,0,1.12);
+  transform-style: preserve-3d;
+}
+.qm-card-front,
+.qm-card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  font-size: 2rem;
+  border-radius: 9px;
+  box-shadow: 0px 2px 8px #eee6;
+}
+.qm-card-front {
+  background: #e1eaf6;
+  border: 2.5px solid #c9e5cf;
+  color: #b8b8b8;
+  z-index: 2;
+  backface-visibility: hidden;
+}
+.qm-card-back {
+  background: #fffefd;
+  color: #4caf50;
+  border: 2.5px solid #4caf50;
+  transform: rotateY(180deg);
+  z-index: 1;
+  backface-visibility: hidden;
+}
+.qm-card.matched .qm-card-back {
+  background: #b1f7c2;
+  color: #2196f3;
+  border-color: #2196f3;
+  opacity: 0.7;
+  filter: grayscale(0.25) brightness(1.1);
+}
+.qm-card:disabled { cursor: default; opacity: 0.84;}
+
+.qm-footer {
+  margin-top: 8px;
+  text-align: center;
+}
+
+.qm-modal-overlay {
+  position: fixed;
+  left: 0; right: 0; top: 0; bottom: 0;
+  background: rgba(68,125,252, 0.09);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1200;
+}
+.qm-modal {
+  background: #fff;
+  border-radius: 14px;
+  padding: 28px 20px 23px 20px;
+  box-shadow: 0 6px 24px #a0c0f926;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 240px;
+}
+.qm-modal-title {
+  color: #4caf50;
+  margin-bottom: 11px;
+  font-size: 2rem;
+}
+.qm-modal-stats {
+  margin-bottom: 11px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: #333;
+}
