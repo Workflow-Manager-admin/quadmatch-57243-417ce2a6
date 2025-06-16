@@ -124,6 +124,40 @@
   z-index: 1;
   backface-visibility: hidden;
 }
+
+/* Colorful, modern card back using gradients and accent elements */
+.colorful-card-back {
+  /* Main background - diagonal gradient with accent palette */
+  background: linear-gradient(135deg,
+    var(--base-light, #00ffff) 0%, 
+    var(--base-dark, #00008b) 100%
+  ), 
+  repeating-linear-gradient(
+    45deg, 
+    rgba(255,255,255,0.07) 0 10px, 
+    rgba(255,255,255,0) 10px 20px
+  );
+  box-shadow: 0 2px 10px 0 #c3e2eb70, 0 0.5px 2.5px #1a1a1a10;
+  /* Subtle pattern accent using a radial fade overlay */
+  position: relative;
+  /* border uses accent color for vibrance */
+  border: 2.5px solid var(--base-light, #00ffff);
+  color: var(--base-light, #00ffff);
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 2rem;
+  overflow: hidden;
+}
+
+.colorful-card-back::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 9px;
+  background: radial-gradient(circle at 70% 20%, rgba(255,255,255,0.18) 0, rgba(255,255,255,0.09) 60%, transparent 85%);
+  z-index: 1;
+}
 .qm-card.matched .qm-card-back {
   background: #b1f7c2;
   color: #2196f3;
