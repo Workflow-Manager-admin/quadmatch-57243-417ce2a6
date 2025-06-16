@@ -39,19 +39,14 @@ function generateShuffledDeck() {
 
 /**
  * Card component
- * Now accepts playFlipSound and playMatchSound for sound triggering
+ * Minimal: no sound, no prop for sound, plain style
  */
-function Card({ card, onClick, disabled, playFlipSound }) {
-  // Avoid playing flip sound on initialization/rehydrate
-  const hasInitialized = useRef(false);
-  useEffect(() => { hasInitialized.current = true; }, []);
-
+function Card({ card, onClick, disabled }) {
   return (
     <button
       className={`qm-card${card.isFlipped || card.isMatched ? ' flipped' : ''}${card.isMatched ? ' matched' : ''}`}
       onClick={() => {
         if (!card.isFlipped && !card.isMatched && !disabled) {
-          if (hasInitialized.current && typeof playFlipSound === 'function') playFlipSound();
           onClick(card);
         }
       }}
@@ -61,7 +56,7 @@ function Card({ card, onClick, disabled, playFlipSound }) {
     >
       <div className="qm-card-inner">
         <div className="qm-card-front" />
-        <div className="qm-card-back colorful-card-back">{card.value}</div>
+        <div className="qm-card-back">{card.value}</div>
       </div>
     </button>
   );
@@ -91,7 +86,7 @@ function formatTime(sec) {
 
 /**
  * PUBLIC_INTERFACE
- * QuadMatch with sound effects and enhanced card backs
+ * QuadMatch minimal version - no sound effects, original plain style
  */
 function QuadMatch() {
   // State
@@ -104,40 +99,6 @@ function QuadMatch() {
   const [gameActive, setGameActive] = useState(true);
   const [showVictory, setShowVictory] = useState(false);
   const timerRef = useRef(null);
-
-  // --- Audio hooks/refs ---
-  // Placeholder - replace these with your real sound files if available.
-  const flipSoundRef = useRef();
-  const matchSoundRef = useRef();
-  const winSoundRef = useRef();
-
-  // Initialize audio only once
-  useEffect(() => {
-    // If you add real audio files, replace the base64 with `new Audio(require('./assets/flip.wav'))`
-    flipSoundRef.current = new window.Audio("data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YYQAAACAgICAgICAgICAgI=");
-    matchSoundRef.current = new window.Audio("data:audio/wav;base64,UklGRhwAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YfQAAADAwMDAwICAgICAgAAAA");
-    winSoundRef.current = new window.Audio("data:audio/wav;base64,UklGRiwAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YYwAAICEhISEhISEhISEhISEhA==");
-  }, []);
-
-  // Helper handlers
-  const playFlipSound = () => { 
-    if (flipSoundRef.current && flipSoundRef.current.currentTime !== undefined) {
-      flipSoundRef.current.currentTime = 0;
-      flipSoundRef.current.play();
-    }
-  };
-  const playMatchSound = () => { 
-    if (matchSoundRef.current && matchSoundRef.current.currentTime !== undefined) {
-      matchSoundRef.current.currentTime = 0;
-      matchSoundRef.current.play();
-    }
-  };
-  const playWinSound = () => { 
-    if (winSoundRef.current && winSoundRef.current.currentTime !== undefined) {
-      winSoundRef.current.currentTime = 0;
-      winSoundRef.current.play();
-    }
-  };
 
   // Start/stop timer
   useEffect(() => {
@@ -154,7 +115,6 @@ function QuadMatch() {
     if (cards.every(card => card.isMatched)) {
       setGameActive(false);
       setShowVictory(true);
-      playWinSound();
     }
     // eslint-disable-next-line
   }, [cards]);
@@ -182,7 +142,6 @@ function QuadMatch() {
 
         if (firstCard.value === secondCard.value) {
           // Match found
-          playMatchSound();
           newCards = newCards.map(card =>
             (card.value === firstCard.value)
               ? { ...card, isMatched: true }
@@ -234,7 +193,6 @@ function QuadMatch() {
               card={card}
               onClick={handleCardClick}
               disabled={isBoardLocked || card.isMatched}
-              playFlipSound={playFlipSound} // new prop!
             />
           )}
         </div>

@@ -7,13 +7,13 @@
 <i> [webpack-dev-server] On Your Network (IPv4): http://172.17.0.2:3000/
 <i> [webpack-dev-server] Content not from webpack is served from './public' directory
 Injecting EditorRootWrapper import: ../.ve/EditorRootWrapper
-asset bundle.js 1.41 MiB [emitted] (name: main)
+asset bundle.js 1.42 MiB [emitted] (name: main)
 asset index.html 1.92 KiB [emitted]
 runtime modules 27.5 KiB 14 modules
 modules by path ./node_modules/ 1.24 MiB 31 modules
-modules by path ./src/ 23.9 KiB
-  modules by path ./src/*.css 13.4 KiB 6 modules
-  modules by path ./src/*.js 10.5 KiB
+modules by path ./src/ 26.9 KiB
+  modules by path ./src/*.css 14.4 KiB 6 modules
+  modules by path ./src/*.js 12.5 KiB
     ./src/index.js 530 bytes [built] [code generated]
     + 2 modules
 modules by path ./.ve/ 15.1 KiB
@@ -22,44 +22,24 @@ modules by path ./.ve/ 15.1 KiB
     ./.ve/EditorOverlay.css 2.25 KiB [built] [code generated]
     ./node_modules/css-loader/dist/cjs.js!./.ve/EditorOverlay.css 697 bytes [built] [code generated]
   ./.ve/EditorOverlay.jsx 1.58 KiB [built] [code generated]
-webpack 5.99.9 compiled successfully in 1283 ms
+webpack 5.99.9 compiled successfully in 1276 ms
 assets by status 1.92 KiB [cached] 1 asset
 assets by path *.js 1.43 MiB
   asset bundle.js 1.42 MiB [emitted] (name: main)
-  asset main.74fbe99867c1036f45c3.hot-update.js 13.1 KiB [emitted] [immutable] [hmr] (name: main)
-asset main.74fbe99867c1036f45c3.hot-update.json 28 bytes [emitted] [immutable] [hmr]
-Entrypoint main 1.43 MiB = bundle.js 1.42 MiB main.74fbe99867c1036f45c3.hot-update.js 13.1 KiB
+  asset main.153a8faffcf866fb25a4.hot-update.js 12.8 KiB [emitted] [immutable] [hmr] (name: main)
+asset main.153a8faffcf866fb25a4.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 1.43 MiB = bundle.js 1.42 MiB main.153a8faffcf866fb25a4.hot-update.js 12.8 KiB
 cached modules 1.27 MiB [cached] 44 modules
 runtime modules 27.5 KiB 14 modules
-./src/QuadMatch.js 9.05 KiB [built] [code generated]
-webpack 5.99.9 compiled successfully in 137 ms
+./src/QuadMatch.js 8.86 KiB [built] [code generated]
+webpack 5.99.9 compiled successfully in 135 ms
 assets by status 1.92 KiB [cached] 1 asset
-assets by path *.js 1.43 MiB
+assets by path *.js 1.42 MiB
   asset bundle.js 1.42 MiB [emitted] (name: main)
-  asset main.10d7ddcdb6a1c7cbe3a7.hot-update.js 14.8 KiB [emitted] [immutable] [hmr] (name: main)
-asset main.10d7ddcdb6a1c7cbe3a7.hot-update.json 28 bytes [emitted] [immutable] [hmr]
-Entrypoint main 1.43 MiB = bundle.js 1.42 MiB main.10d7ddcdb6a1c7cbe3a7.hot-update.js 14.8 KiB
+  asset main.6be67799466886d2b6fb.hot-update.js 6.2 KiB [emitted] [immutable] [hmr] (name: main)
+asset main.6be67799466886d2b6fb.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 1.42 MiB = bundle.js 1.42 MiB main.6be67799466886d2b6fb.hot-update.js 6.2 KiB
 cached modules 1.27 MiB [cached] 44 modules
 runtime modules 27.5 KiB 14 modules
-./src/QuadMatch.js 10.6 KiB [built] [code generated]
-webpack 5.99.9 compiled successfully in 81 ms
-assets by status 1.92 KiB [cached] 1 asset
-assets by path *.js 1.43 MiB
-  asset bundle.js 1.42 MiB [emitted] (name: main)
-  asset main.63f9cfc6df4b525d3fcf.hot-update.js 7.22 KiB [emitted] [immutable] [hmr] (name: main)
-asset main.63f9cfc6df4b525d3fcf.hot-update.json 28 bytes [emitted] [immutable] [hmr]
-Entrypoint main 1.43 MiB = bundle.js 1.42 MiB main.63f9cfc6df4b525d3fcf.hot-update.js 7.22 KiB
-cached modules 1.28 MiB [cached] 44 modules
-runtime modules 27.5 KiB 14 modules
-./node_modules/css-loader/dist/cjs.js!./src/QuadMatch.css 4.64 KiB [built] [code generated]
-webpack 5.99.9 compiled successfully in 53 ms
-assets by status 1.92 KiB [cached] 1 asset
-assets by path *.js 1.43 MiB
-  asset bundle.js 1.42 MiB [emitted] (name: main)
-  asset main.eebfee150dee0e68b948.hot-update.js 14.9 KiB [emitted] [immutable] [hmr] (name: main)
-asset main.eebfee150dee0e68b948.hot-update.json 28 bytes [emitted] [immutable] [hmr]
-Entrypoint main 1.43 MiB = bundle.js 1.42 MiB main.eebfee150dee0e68b948.hot-update.js 14.9 KiB
-cached modules 1.27 MiB [cached] 44 modules
-runtime modules 27.5 KiB 14 modules
-./src/QuadMatch.js 10.7 KiB [built] [code generated]
-webpack 5.99.9 compiled successfully in 76 ms
+./node_modules/css-loader/dist/cjs.js!./src/QuadMatch.css 3.65 KiB [built] [code generated]
+webpack 5.99.9 compiled successfully in 56 ms
